@@ -2,6 +2,7 @@ import React from "react";
 import NewsItem from "./NewsItem";
 import { useState, useEffect } from "react";
 import Spinner from "./Spinner";
+import propTypes from "prop-types"
 
 export default function News(props) {
   const [headlines, setHeadlines] = useState([]);
@@ -11,7 +12,7 @@ export default function News(props) {
   const fetchHeadlinesData = () => {
     setLoading(true);
     fetch(
-      `https://newsapi.org/v2/top-headlines?country=us&apiKey=4496c2c9dfc44897acb766a82be41bb3&page=${page}&pagesize=${props.pageSize}`
+      `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=4496c2c9dfc44897acb766a82be41bb3&page=${page}&pagesize=${props.pageSize}`
     )
       .then((response) => {
         setLoading(false);
@@ -25,7 +26,7 @@ export default function News(props) {
 
   useEffect(() => {
     fetchHeadlinesData();
-  }, [page]);
+  }, [page,props.category,props.country]);
 
   const handlePrevClick = () => {
     setPage(page - 1);
@@ -38,7 +39,7 @@ export default function News(props) {
   return (
     <>
       <div className="container my-4">
-        <h1>NewsMonkey - Headlines</h1>
+        <h1>NewsMonkey - Headlines - {props.category}</h1>
         {loading && <Spinner></Spinner>}
         {!loading && headlines.length > 0 && (
           <div className="row">
@@ -58,7 +59,7 @@ export default function News(props) {
           </div>
         )}
       </div>
-      <div className="container d-flex justify-content-between">
+      <div className="container my-4 d-flex justify-content-between">
         <button
           disabled={page <= 1 ? true : false}
           className="btn btn-dark"
@@ -79,3 +80,19 @@ export default function News(props) {
     </>
   );
 }
+
+
+News.propTypes = {
+  country:propTypes.string,
+  pageSize:propTypes.number,
+  category:propTypes.string
+}
+
+News.defaultProps = {
+  country:"us",
+  pageSize:15,
+  category:"business"
+}
+
+
+//proptypes : https://www.freecodecamp.org/news/how-to-use-proptypes-in-react/
