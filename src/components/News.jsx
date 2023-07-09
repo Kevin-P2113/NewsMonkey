@@ -2,7 +2,7 @@ import React from "react";
 import NewsItem from "./NewsItem";
 import { useState, useEffect } from "react";
 import Spinner from "./Spinner";
-import propTypes from "prop-types"
+import propTypes from "prop-types";
 
 export default function News(props) {
   const [headlines, setHeadlines] = useState([]);
@@ -26,7 +26,7 @@ export default function News(props) {
 
   useEffect(() => {
     fetchHeadlinesData();
-  }, [page,props.category,props.country]);
+  }, [page, props.category, props.country]);
 
   const handlePrevClick = () => {
     setPage(page - 1);
@@ -54,6 +54,8 @@ export default function News(props) {
                   imageUrl={headline.urlToImage}
                   url={headline.url}
                   mode={props.mode}
+                  author={headline.author}
+                  date={new Date(headline.publishedAt)}
                 ></NewsItem>
               </div>
             ))}
@@ -82,18 +84,16 @@ export default function News(props) {
   );
 }
 
-
 News.propTypes = {
-  country:propTypes.string,
-  pageSize:propTypes.number,
-  category:propTypes.string
-}
+  country: propTypes.string,
+  pageSize: propTypes.number,
+  category: propTypes.string,
+};
 
 News.defaultProps = {
-  country:"us",
-  pageSize:15,
-  category:"business"
-}
-
+  country: "us",
+  pageSize: 15,
+  category: "business",
+};
 
 //proptypes : https://www.freecodecamp.org/news/how-to-use-proptypes-in-react/

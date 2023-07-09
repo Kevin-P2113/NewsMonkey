@@ -14,7 +14,6 @@ export default function App() {
     setCountry(country);
   }
   function switchMode() {
-    console.log(mode);
     if (mode == "light") {
       setMode("dark");
       document.documentElement.setAttribute("data-bs-theme", "dark");
@@ -34,7 +33,12 @@ export default function App() {
         toggleMode={switchMode}
         mode={mode}
       ></NavBar>
-      <News pageSize={15} country={country} category={category} mode={mode}></News>
+      <News
+        pageSize={15}
+        country={country}
+        category={category}
+        mode={mode}
+      ></News>
     </>
   );
 }
