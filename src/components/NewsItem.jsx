@@ -31,15 +31,7 @@ export default function NewsItem(props) {
                 <strong>
                   {props.author == null ? "Anonymous" : props.author}
                 </strong>{" "}
-                on{" "}
-                <strong>
-                  {props.date.getDate()}/{props.date.getMonth()}/
-                  {props.date.getFullYear()}
-                </strong>{" "}
-                at{" "}
-                <strong>
-                  {props.date.getHours()}:{props.date.getMinutes()}
-                </strong>
+                on <strong>{props.date.toGMTString()}</strong>{" "}
               </small>
             </p>
             <a
