@@ -13,7 +13,7 @@ export default function NewsItem(props) {
             <p className="card-text overflow-hidden" style={{height:"50px"}}>
               {description===null?"Loading...":description}
             </p>
-            <a href={url} target="_blank" className="btn btn-dark btn-primary">
+            <a href={url} target="_blank" className={`btn btn-${props.mode=="dark"?"light":"dark"}`}>
               Read more
             </a>
           </div>

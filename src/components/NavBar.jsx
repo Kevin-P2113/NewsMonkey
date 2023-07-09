@@ -36,7 +36,7 @@ export default function NavBar(props) {
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  Country
+                  Country ({props.country})
                 </a>
                 <ul className="dropdown-menu">
                   <li>
@@ -147,6 +147,21 @@ export default function NavBar(props) {
                 </button>
               </li>
             </ul>
+            <div className="form-check form-switch">
+              <input
+                className="form-check-input"
+                type="checkbox"
+                role="switch"
+                id="flexSwitchCheckDefault"
+                onClick={props.toggleMode}
+              />
+              <label
+                className="form-check-label"
+                htmlFor="flexSwitchCheckDefault"
+              >
+                {props.mode == "dark" ? "Light" : "Dark"} Mode
+              </label>
+            </div>
           </div>
         </div>
       </nav>

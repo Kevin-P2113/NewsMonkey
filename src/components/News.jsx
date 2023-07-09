@@ -39,7 +39,7 @@ export default function News(props) {
   return (
     <>
       <div className="container my-4">
-        <h1>NewsMonkey - Headlines - {props.category}</h1>
+        <h1>Headlines - {props.category}</h1>
         {loading && <Spinner></Spinner>}
         {!loading && headlines.length > 0 && (
           <div className="row">
@@ -53,6 +53,7 @@ export default function News(props) {
                   description={headline.description}
                   imageUrl={headline.urlToImage}
                   url={headline.url}
+                  mode={props.mode}
                 ></NewsItem>
               </div>
             ))}
