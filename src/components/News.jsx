@@ -10,10 +10,10 @@ export default function News(props) {
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(true);
   const fetchHeadlinesData = () => {
-    props.changeProgress(10);
+    props.changeProgress(20);
     setLoading(true);
     fetch(
-      `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=4496c2c9dfc44897acb766a82be41bb3&page=${page}&pagesize=${props.pageSize}`
+      `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.apiKey}&page=${page}&pagesize=${props.pageSize}`
     )
       .then((response) => {
         props.changeProgress(30);

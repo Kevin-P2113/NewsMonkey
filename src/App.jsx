@@ -7,7 +7,8 @@ export default function App() {
   const [category, setCategory] = useState("business");
   const [country, setCountry] = useState("us");
   const [mode, setMode] = useState("light");
-  const [progress, setProgress] = useState(0);
+  const [progress, setProgress] = useState(10);
+  const apiKey = import.meta.env.VITE_REACT_APP_NEWS_API;
   function handleCategoryChange(category) {
     setCategory(category);
   }
@@ -35,6 +36,7 @@ export default function App() {
         <LoadingBar
           color="#f11946"
           progress={progress}
+          height={3}
           onLoaderFinished={() => setProgress(0)}
         />
       </div>
@@ -51,6 +53,7 @@ export default function App() {
         category={category}
         mode={mode}
         changeProgress={changeProgress}
+        apiKey={apiKey}
       ></News>
     </>
   );
