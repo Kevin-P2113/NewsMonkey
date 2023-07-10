@@ -10,17 +10,20 @@ export default function News(props) {
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(true);
   const fetchHeadlinesData = () => {
+    props.changeProgress(10);
     setLoading(true);
     fetch(
       `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=4496c2c9dfc44897acb766a82be41bb3&page=${page}&pagesize=${props.pageSize}`
     )
       .then((response) => {
+        props.changeProgress(30);
         setLoading(false);
         return response.json();
       })
       .then((data) => {
         setTotalResults(data.totalResults);
         setHeadlines(data.articles);
+        props.changeProgress(100);
       });
   };
 
@@ -65,7 +68,7 @@ export default function News(props) {
       <div className="container my-4 d-flex justify-content-between">
         <button
           disabled={page <= 1 ? true : false}
-          className="btn btn-dark"
+          className={`btn btn-${props.mode}`}
           onClick={handlePrevClick}
         >
           &larr; Prev
@@ -74,7 +77,7 @@ export default function News(props) {
           disabled={
             Math.ceil(totalResults / props.pageSize) === page ? true : false
           }
-          className="btn btn-dark"
+          className={`btn btn-${props.mode}`}
           onClick={handleNextClick}
         >
           Next &rarr;
