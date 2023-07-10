@@ -41,7 +41,7 @@ export default function News(props) {
 
   return (
     <>
-      <div className="container my-4">
+      <div className="container" style={{marginTop:"90px"}}>
         <h1>Headlines - {props.category}</h1>
         {loading && <Spinner></Spinner>}
         {!loading && headlines.length > 0 && (
