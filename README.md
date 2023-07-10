@@ -1,9 +1,9 @@
 # NewsMonkey
-A news website made using React, Vite and BootStrap.
+A news website made using [React](https://react.dev), [Vite](https://vitejs.dev) and [BootStrap](https://getbootstrap.com).
 
 ## Introduction
 
-NewsMonkey is a news website made using React, Vite, BootStrap and it uses the API provided by [NewsAPI](https://newsapi.org) , it displays the top headlines from various news categories such as business, general, entertainment, health, sports, technology and science. It only allows for news from two countries currently which are India and USA but more countries are supported in the API. It also allows the user to toggel between light and dark mode presets using bootstrap. It displays only 15 articles per page and has "next" and "prev" buttons to cycle between articles, the number of articles displayed can be changed but is kept fixed at 15 for this project for now.
+NewsMonkey is a news website made using [React](https://react.dev), [Vite](https://vitejs.dev), [BootStrap](https://getbootstrap.com) and it uses the API provided by [NewsAPI](https://newsapi.org) , it displays the top headlines from various news categories such as business, general, entertainment, health, sports, technology and science. It only allows for news from two countries currently which are India and USA but more countries are supported in the API. It also allows the user to toggel between light and dark mode presets using bootstrap. It displays only 15 articles per page and has "next" and "prev" buttons to cycle between articles, the number of articles displayed can be changed but is kept fixed at 15 for this project for now.
 
 ## Installation
 
